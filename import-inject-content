@@ -22,3 +22,15 @@
         link.href='../symdir/test/'+link.href;
     })
 </script>
+
+<!-- same thing but with src and a time delay -->
+<script>
+setTimeout(function() {
+  $("[id^='includedContent'] script").each(function(){
+    var src = $(this).attr("src");
+    var newSrc="../test/2015globalEmissions/"+src;
+  $(this).attr("src",newSrc)
+})
+}, 500);
+
+</script>
