@@ -1,0 +1,24 @@
+<!-- import file from header -->
+<link href="[path-to-file]" rel="import" />
+
+<!-- pull in jquery -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous">
+</script>
+  
+<!-- inject content from file location into div (in this case id=includedContent) -->
+<script> 
+    jQuery(function(){
+      jQuery("#includedContent").load("[path-to-file]"); 
+    });
+</script>
+
+<!-- switch out paths with updated path based on new location -->
+<script>
+    jQuery("[id^='includedContent']").each(function(){
+        var link = $(this).find('link')[0];
+        link.href='../symdir/test/'+link.href;
+    })
+</script>
